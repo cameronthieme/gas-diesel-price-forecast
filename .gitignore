@@ -90,3 +90,8 @@ target/
 
 # virtual environment
 .venv
+
+# docker
+Dockerfile
+compose.yaml
+.dockerignore

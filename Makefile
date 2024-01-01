@@ -41,6 +41,8 @@ train:
 predict: 
 	$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/latest_week.csv models/xgboost_gas.json models/xgboost_diesel.json
 
+## full process
+full-process: get-data clean-data train predict
 # ## Make Dataset
 # data: requirements
 # 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
