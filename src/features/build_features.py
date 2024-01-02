@@ -39,6 +39,13 @@ def latest_week(df):
     df_latest_week = df.iloc[-1:].reset_index(drop=True)
     return df_latest_week.drop(['GasChange','DieselChange'], axis=1)
 
+# save latest date as .txt file
+def last_date_get(df, date_output_path):
+    last_date = str(df.iloc[-1]['Date'])
+    with open(date_output_path, 'w') as file:
+        file.write(last_date)
+
+
 # drop date column
 def drop_date(df):
     df.drop('Date', axis=1, inplace=True)
@@ -74,11 +81,13 @@ num_differences=17
 @click.argument('crude_input_path', type=click.Path(exists=True))
 @click.argument('train_output_path', type=click.Path())
 @click.argument('test_output_path', type=click.Path())
+@click.argument('date_output_path', type=click.Path())
 def main(gas_input_path, 
          diesel_input_path, 
          crude_input_path,
          train_output_path,
-         test_output_path):
+         test_output_path,
+         date_output_path):
     
     # read files, rename columns
     df_gas = read_data(gas_input_path)
@@ -103,6 +112,9 @@ def main(gas_input_path,
     # add target variable
     make_target(df, 'GasChange', 'Gasoline')
     make_target(df, 'DieselChange', 'Diesel')
+
+    # save last date to print later
+    last_date_get(df, date_output_path)
 
     # drop date
     drop_date(df)

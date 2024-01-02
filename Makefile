@@ -22,27 +22,27 @@ endif
 
 ## Install Python Dependencies
 requirements: test_environment
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	@$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
+	@$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## download data
 get-data: 
-	$(PYTHON_INTERPRETER) src/data/get_data.py
+	@$(PYTHON_INTERPRETER) src/data/get_data.py
 
 ## Clean Dataset
 clean-data: 
-	$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/pswrgvwall.xls data/raw/psw18vwall.xls data/raw/PET_PRI_SPT_S1_W.xls data/interim/lagged_data.csv data/interim/latest_week.csv
+	@$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/pswrgvwall.xls data/raw/psw18vwall.xls data/raw/PET_PRI_SPT_S1_W.xls data/interim/lagged_data.csv data/interim/latest_week.csv data/interim/latest_date.txt
 
 ## train Model
 train: 
-	$(PYTHON_INTERPRETER) src/models/train_model.py data/interim/lagged_data.csv models/xgboost_gas.json models/xgboost_diesel.json
+	@$(PYTHON_INTERPRETER) src/models/train_model.py data/interim/lagged_data.csv models/xgboost_gas.json models/xgboost_diesel.json
 
 ## predict
 predict: 
-	$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/latest_week.csv models/xgboost_gas.json models/xgboost_diesel.json
+	@$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/latest_week.csv models/xgboost_gas.json models/xgboost_diesel.json data/interim/latest_date.txt
 
 ## full process
-full-process: get-data clean-data train predict
+full-process: requirements get-data clean-data train predict
 # ## Make Dataset
 # data: requirements
 # 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
