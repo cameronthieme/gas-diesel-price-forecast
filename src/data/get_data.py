@@ -21,11 +21,11 @@ def main():
     # creating empty folders to store data
     Path("data/raw").mkdir(parents=True, exist_ok=True)
     Path("data/interim").mkdir(parents=True, exist_ok=True)
-    Path("data/external").mkdir(parents=True, exist_ok=True)
-    Path("data/processed").mkdir(parents=True, exist_ok=True)
+    # Path("data/external").mkdir(parents=True, exist_ok=True)
+    # Path("data/processed").mkdir(parents=True, exist_ok=True)
 
     # creating command line message to download files
-    bashCommand = "wget -P data/raw https://www.eia.gov/petroleum/gasdiesel/xls/pswrgvwall.xls"
+    bashCommand = "wget -O data/raw/gas.xls https://www.eia.gov/petroleum/gasdiesel/xls/pswrgvwall.xls"
     
     # calling the command line message bashCommand
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
@@ -35,7 +35,7 @@ def main():
     print(output, error)
 
     # creating command line message to download files
-    bashCommand = "wget -P data/raw https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls"
+    bashCommand = "wget -O data/raw/diesel.xls https://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls"
     
     # calling the command line message bashCommand
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
@@ -45,7 +45,7 @@ def main():
     print(output, error)
 
     # creating command line message to download files
-    bashCommand = "wget -P data/raw https://www.eia.gov/dnav/pet/xls/PET_PRI_SPT_S1_W.xls"
+    bashCommand = "wget -O data/raw/crude.xls https://www.eia.gov/dnav/pet/xls/PET_PRI_SPT_S1_W.xls"
     
     # calling the command line message bashCommand
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)

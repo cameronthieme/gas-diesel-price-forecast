@@ -31,7 +31,7 @@ get-data:
 
 ## Clean Dataset
 clean-data: 
-	@$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/pswrgvwall.xls data/raw/psw18vwall.xls data/raw/PET_PRI_SPT_S1_W.xls data/interim/lagged_data.csv data/interim/latest_week.csv data/interim/latest_date.txt
+	@$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/gas.xls data/raw/diesel.xls data/raw/crude.xls data/interim/lagged_data.csv data/interim/latest_week.csv data/interim/latest_date.txt
 
 ## train Model
 train: 
