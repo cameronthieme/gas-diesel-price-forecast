@@ -11,7 +11,7 @@ There are lots of different pieces of software utilized in this project: Docker,
 
 I'm placing instructions here for running this project in two different ways. You can either run the project by cloning this repo, or by pulling a docker image hosted on AWS. These instructions are designed for use with a Linux EC2 instance that has been initialized with 29Gb of memory (just under the free limit).  
 
-## Method 1: Cloning this Repo and Download from Kaggle
+## Method 1: Cloning this Repo
 
 This method is super simple. All you need to do is clone this repo, enter that directory, and run one make command:
 ```
