@@ -24,7 +24,12 @@ For those using an EC2 instance, you will need to install a few dependencies bef
 sudo yum install -y git
 sudo yum groupinstall "Development Tools"
 ```
-You may also want to activate a virtual environment before running 'make full-process', as it will install several packages, and may cause dependency issues for other projects.  
+You may also want to activate a virtual environment before running 'make full-process', as it will install several packages, and may cause dependency issues for other projects.
+
+Cloning the repo can be done with the command
+```
+git clone https://github.com/cameronthieme/gas-diesel-price-forecast
+```
 
 ## Method 2: Elastic Container Registry (ECR)
 
