@@ -99,3 +99,6 @@ compose.yaml
 # ignoring trained models
 models/xgboost_diesel.json
 models/xgboost_gas.json
+
+# ugly personal notebooks
+notebooks/explore_diesel.ipynb 
