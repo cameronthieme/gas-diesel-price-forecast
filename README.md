@@ -46,6 +46,9 @@ sudo docker run public.ecr.aws/g1s9w1h5/gas-diesel:latest
 Project Organization
 ------------
 
+Note on Organization:
+Some of the folders listed here do not appear in the repository intially, but will appear once the project has been run.  
+
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
