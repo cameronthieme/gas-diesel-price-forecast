@@ -95,3 +95,7 @@ target/
 Dockerfile
 compose.yaml
 .dockerignore
+
+# ignoring trained models
+models/xgboost_diesel.json
+models/xgboost_gas.json
