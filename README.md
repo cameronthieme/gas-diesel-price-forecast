@@ -26,6 +26,11 @@ sudo yum groupinstall "Development Tools"
 ```
 You may also want to activate a virtual environment before running 'make full-process', as it will install several packages, and may cause dependency issues for other projects.
 
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
 Cloning the repo can be done with the command
 ```
 git clone https://github.com/cameronthieme/gas-diesel-price-forecast
