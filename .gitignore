@@ -95,6 +95,3 @@ target/
 Dockerfile
 compose.yaml
 .dockerignore
-
-# exclude models
-/models/
